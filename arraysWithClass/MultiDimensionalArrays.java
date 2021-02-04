@@ -49,24 +49,13 @@ public class MultiDimensionalArrays {
          8  | 9 | 24 | 2
         
         */
-        //Create row and col vaiables
-        int col = 0;
-        int row = 0;
+
+        
         //Display values of the array
         //outer for loop iterates over the rows of our 6x3 array
-        for(row = 0; row < technoStuff.length; row++){
-            if (technoStuff[row][col] == null){
-                //If it is Empty the system will try to read empty
-                //but it will fail... so we can use this to get
-                //rid of nulls.
-                technoStuff[row][col] = "Empty";
-                    
-            } else {
-                //Lets type the rows and columns
-                System.out.println("Row " + (row + 1));
-            }
+        for(int row = 0; row < technoStuff.length; row++){
             //this inner for() loops over each column in our CURRENT row
-            for(col = 0; col < technoStuff[row].length; col++){
+            for(int col = 0; col < technoStuff[row].length; col++){
                 //Check if there are any empty spaces (nulls)
                 if (technoStuff[row][col] == null){
                     //If it is Empty the system will try to read empty
