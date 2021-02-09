@@ -27,9 +27,11 @@ public class LyricMachine {
         if(maxLinesInVerse > 0 && numVerses > 0){
             //initialize array of a given size
             lyrics = new String[maxLinesInVerse][numVerses];
-            System.out.println("Created array with max line count: " + lyrics.length);
-            System.out.println("Created array with verse count: " + lyrics[0].length);
-
+            System.out.println();
+            System.out.println("Created array with verse count: " + lyrics.length);
+            System.out.println("Created array with max line count: " + lyrics[0].length);
+            System.out.println();
+            
         } else {
             System.out.println("There is a problem with entered numbers they must be positive!");
         }//Close if/else
@@ -47,17 +49,32 @@ public class LyricMachine {
         
         //Read in first verse only
         //Loop that will ask user for line, then inject into current row of col 1
-        for(int line = 0; line < lyrics.length; line++){
-            //Read in a single line from user, store temp in userLine
-            String userLine = inPut.nextLine();
-            //inject userLine into the array
-            lyrics[line][0] = userLine;
-        }//Close for
-        
+        for(int verse = 0; verse < lyrics.length; verse++){
+            System.out.println("Verse " + (verse + 1));
+            for(int line = 0; line < lyrics[verse].length; line++){
+                //Read in a single line from user, store temp in userLine
+                System.out.print("   Line " + (line + 1) + ": ");
+                String userLine = inPut.nextLine();
+                if(userLine.length() >= 40){
+                    //Refreshing the Scanner for error fix!
+                    inPut.next();
+                }
+                //inject userLine into the array
+                lyrics[verse][line] = userLine;
+            }//Close for line
+        }//Close for verse
     }//Close readInLyrics
-    
+    /**
+     * TODO for Tuesday: Adjust this print method 
+     * to display DOWN COLUMNS first, not like it's 
+     * coded now, which displays across columns
+     * Output lyrics
+     */
     public void displayLyrics(){
+        System.out.println();
         for(int row = 0; row < lyrics.length; row++){
+            //show row
+            System.out.println("    Verse " + (row + 1));
             //this inner for() loops over each column in our CURRENT row
             for(int col = 0; col < lyrics[row].length; col++){
                 //Check if there are any empty spaces (nulls)
@@ -68,11 +85,9 @@ public class LyricMachine {
                     lyrics[row][col] = "Empty";
                     
                 } else {
-                    //Lets type the rows and columns
-                    System.out.println("Row " + (row + 1));
                     //Now, send to console the value of the current row and col
-                    System.out.println("Column " + (col + 1) + ": " + lyrics[row][col]);
-                }
+                    System.out.println("    Line " + (col + 1) + ": " + lyrics[row][col]);
+                }//Close if else
             } //Close inner for over the columns
             
             //add a return character

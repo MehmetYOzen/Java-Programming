@@ -16,9 +16,6 @@ public class CollectionLand {
      */
     public static void main(String[] args) {
         // When possible, do as little coding in main
-        // as practical, to help with code re-use
-        
-        
         //call startUserInputtedCollection
         startUserInputtedCollection();
     } // close main
@@ -37,7 +34,7 @@ public class CollectionLand {
         System.out.println("Welcome to the collection tools!!");
         System.out.println();
         System.out.println("Enter the name of");
-        System.out.print("your collection:");
+        System.out.print("your collection: ");
         
         
         //Feeding the collection with its name and the number of items
